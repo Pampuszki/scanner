@@ -1,4 +1,5 @@
 [tool.ruff]
+src = ["src", "test"]
 # Exclude a variety of commonly ignored directories.
 exclude = [
     ".bzr",
@@ -18,6 +19,7 @@ exclude = [
     ".svn",
     ".tox",
     ".venv",
+    "venv",
     ".vscode",
     "__pypackages__",
     "_build",
@@ -26,36 +28,57 @@ exclude = [
     "dist",
     "node_modules",
     "site-packages",
-    "venv",
 ]
 
 line-length = 120
 indent-width = 4
-
-# Assume Python 3.12
 target-version = "py312"
 
 [tool.ruff.lint]
-# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
-select = ["E4", "E7", "E9", "F"]
-ignore = []
+select = ["ALL"]
+ignore = [
+    "ANN101",   # Missing type annotation for self in method
+    "ANN102",   # Missing type annotation for cls in class method
+    "ANN201",   # Missing type annotation for return type
+    "ANN401",   # Missing type annotation for exception
+    "COM",      # Commented out code
+    "D100",     # Missing module docstring
+    "D104",     # Missing docstring in __init__.py function
+    "D105",     # Missing docstring in magic method
+    "D107",     # Missing docstring in init
+    "D203",     # 1 blank line required before class docstring (found 0)
+    "D213",     # Multiline docstring summary should start at the second line
+    "EM101",    # Missing exception type in 'except'
+    "EM103",    # Exception name should be lowercase
+    "FA100",    # Incorrect use of assert statement
+    "FBT001",   # assert False
+    "FBT002",   # assert True
+    "ISC",      # Incorrect subclassing (does not call super)
+    "PLR0913",  # Too many positional arguments for function call
+    "PTH103",   # Use os.path.join instead of string concatenation
+    "PTH110",   # Use os.path.isabs to check if a path is absolute
+    "PTH118",   # Use os.path.abspath to get the absolute path of a file
+    "PTH123",   # Use os.path.dirname to get the directory of a file
+    "PTH109",   # Use os.path.basename to get the base name of a file
+    "SIM108",   # Use is to compare with None
+    "S101",     # Use of assert detected
+    "TCH",      # Too many method arguments
+    "TRY003",   # Too many except clauses
+    "UP030",    # Use None as a default value for mutable types in argument
+    "UP032",    # Use a list comprehension instead of filter and lambda
+]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
 
-# Allow unused variables when underscore-prefixed.
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$" # Allow unused variables when underscore-prefixed.
 
 [tool.ruff.format]
-# Like Black, use double quotes for strings.
-quote-style = "double"
+quote-style = "double"              # Like Black, use double quotes for strings.
+indent-style = "space"              # Like Black, indent with spaces, rather than tabs.
+skip-magic-trailing-comma = false   # Like Black, respect magic trailing commas.
+line-ending = "auto"                # Like Black, automatically detect the appropriate line ending.
 
-# Like Black, indent with spaces, rather than tabs.
-indent-style = "space"
-
-# Like Black, respect magic trailing commas.
-skip-magic-trailing-comma = false
-
-# Like Black, automatically detect the appropriate line ending.
-line-ending = "auto"
+[tool.ruff.lint.pydocstyle]
+convention = "google"
