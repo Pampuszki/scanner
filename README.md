@@ -4,26 +4,32 @@ This project uses Python version 3.12
 
 ## Installation
 
-### 1. Create a Virtual Environment
+### <ins>1. Create a Virtual Environment</ins>
 
-```python -m venv .venv```
+    python -m venv .venv
 
-### 2. Activate the Virtual Environment
+### <ins>2. Activate the Virtual Environment</ins>
 
-#### On Windows:
+- #### On Windows:</ins>
 
-```.\.venv\Scripts\activate```
+        .\.venv\Scripts\activate
 
-#### On Unix
+- #### On Unix:</ins>
 
-```source .venv/bin/activate```
+        source .venv/bin/activate 
 
-### 3. Install Dependencies
+### 3. <ins>Install Dependencies</ins>
 
-```pip install -r requirements.txt```
+Install tesseract [link](https://tesseract-ocr.github.io/tessdoc/Installation.html):
 
-### 4. Running Tests with tox
+    sudo apt install tesseract-ocr libtesseract-dev
+
+Install requirements:
+
+    pip install -r requirements.txt
+
+### <ins>4. Running Tests with tox</ins>
 
 Tox will automatically create and configure virtual environments for different Python versions and run the test suite.
 
-```tox```
+    tox
