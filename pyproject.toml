@@ -47,7 +47,7 @@ ignore = [
     "D105",     # Missing docstring in magic method
     "D107",     # Missing docstring in init
     "D203",     # 1 blank line required before class docstring (found 0)
-    "D213",     # Multiline docstring summary should start at the second line
+    "D212",     # Multiline docstring summary should start at the second line
     "EM101",    # Missing exception type in 'except'
     "EM103",    # Exception name should be lowercase
     "FA100",    # Incorrect use of assert statement
